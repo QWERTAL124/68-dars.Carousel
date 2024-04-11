@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href=".//secondindex.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="slider">
+      <!-- Next prev headquarter -->
+      <div class="slider_count">
+        <div class="main">
+          <div class="slider_prev"><p>Prev</p></div>
+
+          <div><span id="current">01</span>/<span id="total">05</span></div>
+
+          <div class="slider_next"><p>Next</p></div>
+        </div>
+      </div>
+
+      <div class="total_item">
+        <div class="total_item-inner">
+          <!-- 1--item -->
+          <div class="offer_slide">
+            <img src="./img/5.jpg" id="imgs" alt="" />
+            <div class="descr">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque
+              odio possimus voluptatem deleniti tempora. Nihil velit blanditiis
+              tempore quis similique cupiditate totam!
+            </div>
+          </div>
+          <!-- 2--item -->
+          <div class="offer_slide">
+            <img src="./img/6.jpg" id="imgs" alt="" />
+            <div class="descr">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque
+              odio possimus voluptatem deleniti tempora. Nihil velit blanditiis
+              tempore quis similique cupiditate totam!
+            </div>
+          </div>
+          <!-- 3--item -->
+          <div class="offer_slide">
+            <img src="./img/7.jpg" id="imgs" alt="" />
+            <div class="descr">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque
+              odio possimus voluptatem deleniti tempora. Nihil velit blanditiis
+              tempore quis similique cupiditate totam!
+            </div>
+          </div>
+          <!-- 4--item -->
+          <div class="offer_slide">
+            <img src="./img/8.png" id="imgs" alt="" />
+            <div class="descr">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque
+              odio possimus voluptatem deleniti tempora. Nihil velit blanditiis
+              tempore quis similique cupiditate totam!
+            </div>
+          </div>
+          <!-- 5--item -->
+          <div class="offer_slide">
+            <img src="./img/10.png" id="imgs" alt="" />
+            <div class="descr">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque
+              odio possimus voluptatem deleniti tempora. Nihil velit blanditiis
+              tempore quis similique cupiditate totam!
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      const slides = document.querySelectorAll(".offer_slide"),
+        next = document.querySelector(".slider_next"),
+        prev = document.querySelector(".slider_prev"),
+        total = document.querySelector("#total"),
+        current = document.querySelector("#current"),
+        sliderWrapper = document.querySelector('.total_item'),
+        slidesField = document.querySelector('.total_item-inner'),
+        width = window.getComputedStyle(sliderWrapper).width;
+
+    console.log(width);
+
+      // ========== CROUSEL SLIDER ======///
+
+      let slideIndex = 1;
+      let offset = 0
+
+      if(slides.length<10){
+        total.textContent = `0${slides.length} `
+        current.textContent = `0${slideIndex}`
+      }else{
+        total.textContent = slides.length
+        current.textContent = slideIndex
+      }
+
+      slidesField.style.width = 100*slides.length+'%';
+      slidesField.style.display = 'flex';
+      slidesField.style.transition = '.5s ease all'
+      sliderWrapper.style.overflow = 'hidden'
+      slides.forEach((slide)=>{
+        slide.style.width = width
+      });
+
+      next.addEventListener('click',()=>{
+        if(offset == +width.slice(0,width.length-2)*(slides.length-1)){
+          offset =0
+        }else{
+          offset +=+width.slice(0,width.length-2);
+        }
+        slidesField.style.transform = `translateX(-${offset}px)`;
+        slidesField.style.transform = `translateX(-${offset}px)`;
+        if(slideIndex == slides.length){
+          slideIndex=1;
+        }else{
+          slideIndex++
+        }
+
+        if(slides.length<10){
+          current.textContent = `0${slideIndex}`
+        }else{
+          current.textContent = slideIndex;
+        }
+      });
+
+      prev.addEventListener('click',()=>{
+        if(offset == 0){
+          offset -=+width.slice(0,width.length-2)*(slides.length-1)
+        }else{
+          offset =+width.slice(0,width.length-2)*(slides.length-1)
+        }
+        slidesField.style.transform = `translateX(-${offset}px)`;
+        if(slideIndex == 1){
+          slideIndex=slides.length;
+        }else{
+          slideIndex--
+        }
+      })
+
+    </script>
+  </body>
+</html>

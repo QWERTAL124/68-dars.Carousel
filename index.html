@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./index.css" />
+    <title>Rasm o'tkazgich</title>
+  </head>
+  <body>
+    <!-- Imge slider start -->
+    <div class="slider">
+      <div class="slides">
+        <!-- radio buttons start -->
+        <input type="radio" name="radio-btn" id="radio1" />
+        <input type="radio" name="radio-btn" id="radio2" />
+        <input type="radio" name="radio-btn" id="radio3" />
+        <input type="radio" name="radio-btn" id="radio4" />
+        <!-- radio buttons end -->
+
+        <!-- slide images start -->
+        <div class="slide first">
+          <img src="./img/1.jpg" alt="1-img" />
+        </div>
+        <div class="slide">
+          <img src="./img/2.jpg" alt="2-img" />
+        </div>
+        <div class="slide">
+          <img src="./img/3.jpg" alt="3-img" />
+        </div>
+        <div class="slide">
+          <img src="./img/4.jpg" alt="4-img" />
+        </div>
+        <!-- slide images end -->
+        <!-- automatic navigation start-->
+        <div class="navigation-auto">
+          <div class="auto-btn1"></div>
+          <div class="auto-btn2"></div>
+          <div class="auto-btn3"></div>
+          <div class="auto-btn4"></div>
+        </div>
+        <!-- automatic navigation end-->
+      </div>
+      <!-- manula navigation start -->
+      <div class="navigation-manual">
+        <label for="radio1" class="manual-btn"></label>
+        <label for="radio2" class="manual-btn"></label>
+        <label for="radio3" class="manual-btn"></label>
+        <label for="radio4" class="manual-btn"></label>
+      </div>
+      <!-- manula navigation end -->
+    </div>
+    <!-- Image slider end -->
+
+    <!-- Tab content items start -->
+    <div class="tabcontent">
+      <div class="tabheader">
+        <div class="tabheader__items">
+          <p class="tabheader__item faol">1-reja</p>
+          <p class="tabheader__item">2-reja</p>
+          <p class="tabheader__item">3-reja</p>
+          <p class="tabheader__item">4-reja</p>
+          <p class="tabheader__item">5-reja</p>
+        </div>
+      </div>
+      <div class="intro-childs">
+        <div class="card">
+          <img src="./img/5.jpg" alt="1-image" class="img" />
+        </div>
+        <div class="card">
+          <img src="./img/6.jpg" class="img" alt="2-image" />
+        </div>
+        <div class="card">
+          <img src="./img/7.jpg" class="img" alt="2-image" />
+        </div>
+        <div class="card">
+          <img src="./img/8.png" class="img" alt="3-image" />
+        </div>
+        <div class="card">
+          <img src="./img/9.png" class="img" alt="4-image" />
+        </div>
+      </div>
+    </div>
+    <!-- Tab content items end -->
+
+    <!-- Loyiha Slider start -->
+
+    <div class="slider">
+      <!-- Next prev headquarter -->
+      <div class="slider_count">
+        <div class="main">
+          <div class="slider_prev"><p>Prev</p></div>
+
+          <div><span id="current">01</span>/<span id="total">05</span></div>
+
+          <div class="slider_next"><p>Next</p></div>
+        </div>
+      </div>
+
+      <div class="total_item">
+        <!-- 1--item -->
+        <div class="offer_slide">
+          <img src="./img/5.jpg" id="imgs" alt="" />
+          <div class="descr">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque odio
+            possimus voluptatem deleniti tempora. Nihil velit blanditiis tempore
+            quis similique cupiditate totam!
+          </div>
+        </div>
+        <!-- 2--item -->
+        <div class="offer_slide">
+          <img src="./img/6.jpg" id="imgs" alt="" />
+          <div class="descr">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque odio
+            possimus voluptatem deleniti tempora. Nihil velit blanditiis tempore
+            quis similique cupiditate totam!
+          </div>
+        </div>
+        <!-- 3--item -->
+        <div class="offer_slide">
+          <img src="./img/7.jpg" id="imgs" alt="" />
+          <div class="descr">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque odio
+            possimus voluptatem deleniti tempora. Nihil velit blanditiis tempore
+            quis similique cupiditate totam!
+          </div>
+        </div>
+        <!-- 4--item -->
+        <div class="offer_slide">
+          <img src="./img/8.png" id="imgs" alt="" />
+          <div class="descr">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque odio
+            possimus voluptatem deleniti tempora. Nihil velit blanditiis tempore
+            quis similique cupiditate totam!
+          </div>
+        </div>
+        <!-- 5--item -->
+        <div class="offer_slide">
+          <img src="./img/9.png" id="imgs" alt="" />
+          <div class="descr">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque odio
+            possimus voluptatem deleniti tempora. Nihil velit blanditiis tempore
+            quis similique cupiditate totam!
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Loyiha Slider end -->
+
+    <!-- Slider1 section start -->
+
+    
+
+    <!-- Slider2 section end -->
+
+    <div class="keyingi"></div>
+
+    <script type="text/javascript">
+      var counter = 1;
+      setInterval(function () {
+        document.getElementById("radio" + counter).checked = true;
+        counter++;
+        if (counter > 4) {
+          counter = 1;
+        }
+      }, 5000);
+
+      // Tab content animation start
+      var tabParent = document.querySelector(".tabheader__items"),
+        tabs = document.querySelectorAll(".tabheader__item"),
+        tabsContent = document.querySelectorAll(".card");
+      function hideTabContent() {
+        tabsContent.forEach((item) => {
+          item.classList.add("hide");
+          item.classList.remove("show", "fade");
+        });
+        tabs.forEach((item) => {
+          item.classList.remove("faol");
+        });
+      }
+
+      function showTabContent(i = 0) {
+        tabsContent[i].classList.add("show", "fade");
+        tabsContent[i].classList.remove("hide");
+      }
+
+      hideTabContent();
+      showTabContent();
+
+      tabParent.addEventListener("click", (e) => {
+        const target = e.target;
+
+        if (target && target.classList.contains("tabheader__item")) {
+          tabs.forEach((item, idx) => {
+            if (target == item) {
+              hideTabContent();
+              showTabContent(idx);
+              console.log(idx);
+            }
+          });
+        }
+      });
+
+      // Tab content animation end
+
+      // ========= Slider start =========== //
+
+      const slides = document.querySelectorAll(".offer_slide"),
+        next = document.querySelector('.slider_next'),
+        prev = document.querySelector('.slider_prev'),
+        total = document.querySelector('#total'),
+        current = document.querySelector('#current');
+
+      
+      let slideIndex = 1;
+
+      showSlide();
+
+      if(slides.length<10){
+        total.textContent = `0${slides.length}`
+      }else{
+        total.textContent = slides.length
+      }
+
+      if(slides.length<10){
+        current.textContent = `0${slideIndex}`
+      }else{
+        current.textContent = slideIndex
+      }
+      function showSlide(idx){
+
+        
+      if(slideIndex>slides.length){
+        slideIndex = 1
+      }else if(slideIndex<1){
+        slideIndex = slides.length;
+      }
+      
+        slides.forEach((item)=>{
+          item.style.display = 'none'
+        });
+        slides[slideIndex-1].style.display = 'block';
+      }
+
+
+      function plusSlide(idx){
+        showSlide(slideIndex+=idx);
+      }
+
+      next.addEventListener('click',()=>{
+        plusSlide(1)
+      });
+
+      prev.addEventListener('click',()=>{
+        plusSlide(-1);
+      })
+
+      // ========== Slider end =========== //
+    </script>
+    <!-- <script src="./scrip.js"></script> -->
+  </body>
+</html>
